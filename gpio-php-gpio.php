@@ -14,25 +14,25 @@
 	<body>
 		<h1>
 			<?php
-			require '/var/www/html/lib/vendor/autoload.php';
+			require 'lib/vendor/autoload.php';
 			use PhpGpio\Gpio;
 			$gpio = new GPIO();
-			$gpio->output(25, 1);
+			$pin = 4;
 			if (isset($_POST["Initialize_Pin"])) {
-				echo "Initialize GPIO pin 21";
-				$gpio->setup(21, "out");
+				echo "Initialize GPIO pin $pin";
+				$gpio->setup($pin, "out");
 			}
 			else if(isset($_POST["LED_ON"])) {
 				echo "LED ON";
-				$gpio->output(21, 1);
+				$gpio->output($pin, 1);
 			}
 			else if(isset($_POST["LED_OFF"])) {
 				echo "LED OFF";
-				$gpio->output(21, 0);
+				$gpio->output($pin, 0);
 			}
 			else if(isset($_POST["Finalize_Pin"])) {
-				echo "Finalize GPIO pin 21";
-				$gpio->unexportAll();
+				echo "Finalize GPIO pin $pin";
+				$gpio->unexport($pin);
 			}
 			else {
 				echo "Press Initialize_Pin button first";

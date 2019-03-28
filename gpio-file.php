@@ -14,23 +14,24 @@
 	<body>
 		<h1>
 			<?php
+			$pin = 4;
 			if (isset($_POST["Initialize_Pin"])) {
-				echo "Initialize GPIO pin 21";
-				file_put_contents('/sys/class/gpio/export','21');
+				echo "Initialize GPIO pin $pin";
+				file_put_contents('/sys/class/gpio/export','$pin');
 				usleep(50000);
-				file_put_contents('/sys/class/gpio/gpio21/direction','out');
+				file_put_contents('/sys/class/gpio/gpio$pin/direction','out');
 			}
 			else if(isset($_POST["LED_ON"])) {
 				echo "LED ON";
-				file_put_contents('/sys/class/gpio/gpio21/value','1');
+				file_put_contents('/sys/class/gpio/gpio$pin/value','1');
 			}
 			else if(isset($_POST["LED_OFF"])) {
 				echo "LED OFF";
-				file_put_contents('/sys/class/gpio/gpio21/value','0');
+				file_put_contents('/sys/class/gpio/gpio$pin/value','0');
 			}
 			else if(isset($_POST["Finalize_Pin"])) {
-				echo "Finalize GPIO pin 21";
-				file_put_contents('/sys/class/gpio/unexport','21');
+				echo "Finalize GPIO pin $pin";
+				file_put_contents('/sys/class/gpio/unexport','$pin');
 			}
 			else {
 				echo "Press Initialize_Pin button first";
