@@ -147,7 +147,7 @@
 				}
 			}
 			else if(isset($_POST["Finalize_Pin"])) {
-				echo "Finalize GPIO pin 21";
+				echo "Finalize GPIO pins";
 				foreach($segment_pins as $nowPin){
 					$gpio->output($nowPin, 0);
 					$gpio->unexport($nowPin);

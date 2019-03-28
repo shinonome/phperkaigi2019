@@ -16,8 +16,12 @@
 			<?php
 			require 'lib/vendor/autoload.php';
 			use PhpGpio\Gpio;
+			$pin = 21
 			$gpio = new GPIO();
+<<<<<<< HEAD
 			$pin = 4;
+=======
+>>>>>>> b0660270bd722569b9d8553dedc6e49965d24357
 			if (isset($_POST["Initialize_Pin"])) {
 				echo "Initialize GPIO pin $pin";
 				$gpio->setup($pin, "out");
