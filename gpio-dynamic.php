@@ -30,7 +30,7 @@
 				"F" => 12,
 				"G" => 19,
 				"H" => 6,
-			)
+			);
 			$dig_segment = array(
 				array(
 					$segment_pins["A"], 
@@ -101,7 +101,7 @@
 					$segment_pins["F"],
 					$segment_pins["G"],
 				),
-			)
+			);
 			$dig_figure = array(24, 16, 20, 26)
 			
 			if (isset($_POST["Initialize_Pin"])) {
