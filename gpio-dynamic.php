@@ -104,7 +104,7 @@
 			);
 			$dig_figure = array(24, 16, 20, 26)
 			
-			if (isset($_POST["Initialize_Pin"])) {
+			if(isset($_POST["Initialize_Pin"])) {
 				echo "Initialize GPIO pins";
 				foreach($dig_figure as $nowPin){
 					$gpio->setup($nowPin, "out");
